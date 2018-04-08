@@ -21,5 +21,18 @@
       state: 'articles.list',
       roles: ['*']
     });
+
+    // Add the dropdown list item
+    menuService.addSubMenuItem('topbar', 'articles', {
+      title: 'List Products',
+      state: 'products.list',
+      roles: ['*']
+    });
+
+    menuService.addSubMenuItem('topbar', 'articles', {
+      title: 'Create a product',
+      state: 'products.create',
+      roles: ['*']
+    });
   }
 }());

@@ -1,0 +1,88 @@
+<section>
+  <div class="page-header">
+    <h1 ng-bind="vm.product.productName"></h1>
+  </div>
+  <small>
+    <em class="text-muted">
+      Create on
+      <span ng-bind="vm.product.created | date:'mediumDate'"></span>
+    </em>
+  </small>
+  <p></p>
+  <small ng-if="vm.product.updated>0">
+        <em class="text-muted">
+          Last update on
+          <span ng-bind="vm.product.updated | date:'mediumDate'"></span>
+        </em>
+      </small>
+  <p><button class="btn btn-default" ng-click="vm.goProductUpdatePage()">Edit this product</button></p>
+  <ul class="list-unstyled">
+    
+    <li>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                Pictures:
+            </h3>
+            
+        </div>
+        <div class="panel-body">
+            <p><button class="btn btn-primary" ng-click="vm.goProductImage()">Change Product Picture</button></p>
+            <img style="max-width: 200px;max-height: 200px;" ng-src="{{vm.product.image}}"/>
+          
+        </div>
+      </div>
+      
+    </li>
+    <li>
+      <div class="panel panel-default">
+          <div class="panel-heading">
+              <h3 class="panel-title">
+                  Description:
+              </h3>
+          </div>
+          <div class="panel-body">
+              <p class="lead" ng-bind="vm.product.description"></p>
+          </div>
+        </div>
+    </li>
+    <li>
+      <div class="panel panel-default">
+          <div class="panel-heading">
+              <h3 class="panel-title">
+                  Categories:
+              </h3>
+          </div>
+          <div class="panel-body">
+                <ul>
+                    <li ng-repeat="_category in vm.product.category" ng-bind="_category.categoryName"></li>
+                </ul>
+          </div>
+        </div>
+    </li>
+    <li>
+      <div class="panel panel-default">
+          <div class="panel-heading">
+              <h3 class="panel-title">
+                  Price:
+              </h3>
+          </div>
+          <div class="panel-body">
+              $<span class="lead" ng-bind="vm.product.price"></span>
+          </div>
+        </div>
+    </li>
+    <li>
+      <div class="panel panel-default">
+          <div class="panel-heading">
+              <h3 class="panel-title">
+                  Stock Quantity:
+              </h3>
+          </div>
+          <div class="panel-body">
+              <span class="lead" ng-bind="vm.product.stockQuantity"></span>
+          </div>
+        </div>
+    </li>
+  </ul>
+</section>

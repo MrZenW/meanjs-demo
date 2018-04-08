@@ -1,0 +1,72 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.product._id ? 'Modify a product information' : 'Create a new product information'}}</h1>
+  </div>
+  <div class="pull-right">
+    <a ng-show="vm.product._id" class="btn btn-primary" ng-click="vm.remove()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.productForm" class="form-horizontal" ng-submit="vm.save(vm.form.productForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="productName">Product Name</label>
+          <input name="productName" type="text" ng-model="vm.product.productName" id="productName" class="form-control" placeholder="Product Name" required >
+          <div ng-messages="vm.form.productForm.productName.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Product name is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="price">Price</label>
+          <input name="price" type="number" ng-model="vm.product.price" id="price" class="form-control" placeholder="Price" >
+          <div ng-messages="vm.form.productForm.price.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">The price must be a number.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="stockQuantity">Stock Quantity</label>
+          <input name="stockQuantity" type="number" ng-model="vm.product.stockQuantity" id="stockQuantity" class="form-control" placeholder="Stock Quantity" >
+        </div>
+        <div class="form-group">
+            <label class="control-label">Categories:</label>
+            
+              <!-- <div class="form-control"> -->
+                <label class="checkbox-inline custom-checkbox nowrap"></label>
+                    <label>
+                      <button type="button" class="btn btn-sm btn-default" ng-click="showNewCategoryDialog($event)"  >
+                          +New Category
+                      </button>
+                    </label>
+                    <label ng-repeat="_category in vm.allCategories" id="all_category_label" style="margin-right: 10px;">
+                      <input name="category" type="checkbox" ng-model="vm.productCategories[_category._id]" ng-true-value="true" ng-false-value="false"><span class="addon-left" ng-bind="_category.categoryName"></span>
+                    </label>
+
+                </label>
+              <!-- </div> -->
+              
+          </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="description">Description</label>
+          <textarea name="description" data-ng-model="vm.product.description" id="description" class="form-control" cols="30" rows="10" placeholder="Description"></textarea>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-success">{{vm.product._id ? 'Update' : 'Create'}}</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <!-- Templates -->
+  <script type="text/ng-template" id="newCategoryDialogId">
+
+
+    <div class="form-group">
+      <label class="control-label" for="stockQuantity">New Category Name:</label>
+      <input name="newCategoryName" ng-model="newCategoryName" type="text" id="newCategoryName" class="form-control" placeholder="New Category Name" />
+    </div>
+    <div class="form-group">
+      <button type="button" name="newCategoryButtonOK" class="btn btn-success" ng-click="confirm(newCategoryName)" id="newCategoryButtonOK">OK</button>
+    </div>
+
+  </script>
+</section>
