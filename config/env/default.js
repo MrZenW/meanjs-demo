@@ -55,14 +55,14 @@ module.exports = {
   uploads: {
     // Storage can be 'local' or 's3'
     storage: process.env.UPLOADS_STORAGE || 'local',
-    profile: {
-      image: {
-        dest: './modules/users/client/img/profile/uploads/',
-        limits: {
-          fileSize: 1 * 1024 * 1024 // Max file size in bytes (1 MB)
-        }
-      }
-    },
+    // profile: {
+    //   image: {
+    //     dest: './modules/users/client/img/profile/uploads/',
+    //     limits: {
+    //       fileSize: 1 * 1024 * 1024 // Max file size in bytes (1 MB)
+    //     }
+    //   }
+    // },
     product: {
       image: {
         dest: './modules/articles/client/img/product/uploads/',
