@@ -252,11 +252,11 @@ gulp.task('copyLocalEnvConfig', function () {
 
 // Make sure upload directory exists
 gulp.task('makeUploadsDir', function () {
-  // return fs.mkdir('modules/users/client/img/profile/uploads', function (err) {
-  //   if (err && err.code !== 'EEXIST') {
-  //     console.error(err);
-  //   }
-  // });
+  return fs.mkdir('/modules/articles/client/img/product/uploads/', function (err) {
+    if (err && err.code !== 'EEXIST') {
+      console.error(err);
+    }
+  });
 });
 
 // Angular template cache task
