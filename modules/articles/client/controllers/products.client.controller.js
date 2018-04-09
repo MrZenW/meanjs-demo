@@ -15,6 +15,7 @@
     // CategoriesService.query().findOne({ _id: { $in: product.category } }).exec(function (data) {
     //   console.log(data, '#####dd');
     // });
+
     vm.product = product;
     vm.goProductImage = goProductImage;
     vm.goProductUpdatePage = goProductUpdatePage;
@@ -28,6 +29,9 @@
       $state.go('products.update', {
         _id: vm.product._id
       });
+    }
+    function goProductList() {
+      $state.go('products.list');
     }
     // vm.authentication = Authentication;
 

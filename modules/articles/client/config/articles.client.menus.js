@@ -8,28 +8,34 @@
   menuConfig.$inject = ['menuService'];
 
   function menuConfig(menuService) {
+    // menuService.addMenuItem('topbar', {
+    //   title: 'Articles',
+    //   state: 'articles',
+    //   type: 'dropdown',
+    //   roles: ['*']
+    // });
+
+    // // Add the dropdown list item
+    // menuService.addSubMenuItem('topbar', 'articles', {
+    //   title: 'List Articles',
+    //   state: 'articles.list',
+    //   roles: ['*']
+    // });
+
     menuService.addMenuItem('topbar', {
-      title: 'Articles',
-      state: 'articles',
+      title: 'Products',
+      state: 'products',
       type: 'dropdown',
       roles: ['*']
     });
-
     // Add the dropdown list item
-    menuService.addSubMenuItem('topbar', 'articles', {
-      title: 'List Articles',
-      state: 'articles.list',
-      roles: ['*']
-    });
-
-    // Add the dropdown list item
-    menuService.addSubMenuItem('topbar', 'articles', {
+    menuService.addSubMenuItem('topbar', 'products', {
       title: 'List Products',
       state: 'products.list',
       roles: ['*']
     });
 
-    menuService.addSubMenuItem('topbar', 'articles', {
+    menuService.addSubMenuItem('topbar', 'products', {
       title: 'Create a product',
       state: 'products.create',
       roles: ['*']
